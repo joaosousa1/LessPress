@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /example
+
+# Link para o seu mapa do site (ajuda o SEO)
+Sitemap: https://<domain>/sitemap.xml

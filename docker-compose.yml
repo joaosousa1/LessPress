@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: php-fpm-lesspress
+    restart: unless-stopped
+    volumes:
+      - ./public_html:/var/www/html
+      - ./app:/var/www/app
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx-lesspress
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    volumes:
+      - ./public_html:/var/www/html
+      # "ro" no final para apenas leitura
+      - ./app/nginx_config/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app

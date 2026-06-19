@@ -1,0 +1,38 @@
+=== SYSTEM INSTALLATION CHECK ===
+
+This is a safe raw text blueprint for the installation script.
+To perform a full environment reset:
+1. Delete the active database file at app/data/database.sqlite
+2. Copy this content into public_html/install.php
+3. Run it via your browser, then delete public_html/install.php immediately.
+
+-------------------------------------------------------------------------
+[PHP SCRIPT CODE]
+-------------------------------------------------------------------------
+<?php
+echo "<pre>";
+echo "=== SYSTEM INSTALLATION CHECK ===\n";
+
+$initScriptPath = __DIR__ . '/../app/init.php';
+
+if (!file_exists($initScriptPath)) {
+    die("CRITICAL ERROR: Core installation file missing.\n");
+}
+
+$installationResult = include $initScriptPath;
+
+if ($installationResult === false) {
+    echo "\n-------------------------------------------------------------\n";
+    echo "⚠️  SECURITY ALERT: SYSTEM ALREADY INSTALLED!\n";
+    echo "The database is active and an administrator account already exists.\n";
+    echo "For safety reasons, you must DELETE 'public_html/install.php' NOW.\n";
+    echo "-------------------------------------------------------------\n";
+} else {
+    echo "\n=============================================================\n";
+    echo "✅ SUCCESS: Database tables built and Super User seeded!\n";
+    echo "Login Email: admin@system.local\n";
+    echo "Password: 123\n\n";
+    echo "⚠️  CRITICAL: Delete this 'install.php' file immediately from production.\n";
+    echo "=============================================================\n";
+}
+echo "</pre>";

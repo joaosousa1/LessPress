@@ -1,0 +1,71 @@
+main {
+    width: 100%;
+    font-size: 0.7em;
+    padding: 0 30px 0 30px;
+    height: 100vh;
+}
+h1 {
+    font-size: 1.7em;
+}
+input {
+    font-size: 1.3em;
+}
+
+/* Center loading */
+#loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--pico-background-color);
+    /* Usa a cor de fundo do Pico */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s;
+}
+/* Hide */
+#loader-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+/* Init content state (hide) */
+#main-content {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+/* Fade-in man content */
+#main-content.visible {
+    opacity: 1;
+}
+
+#top {
+border-bottom: solid 1px #4d4e50;
+padding: 0 !important;
+width: 100%;
+}
+
+#menu * {
+    margin: 0 0 10px 0;
+    padding: 0;
+    border: 0;
+}
+
+#menu-user {
+    margin: 0;
+    align-items: center;
+    display: flex;
+    font-size: 0.7em;
+}
+#menu-user * {
+    list-style-type: none;
+    display: inline-flex;
+    margin: 0 5px 0 0;
+}
+
+#logo {
+    width: 57px;
+    margin: 10px;
+}

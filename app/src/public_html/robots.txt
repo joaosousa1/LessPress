@@ -1,0 +1,12 @@
+# LessPress Automated Robots.txt
+User-agent: *
+Disallow: /admin/
+Disallow: /admin
+Disallow: /editor/
+Disallow: /editor
+Disallow: /user/settings
+Disallow: /login
+Disallow: /install.php
+Allow: /
+
+Sitemap: https://yourdomain.com/sitemap.xml

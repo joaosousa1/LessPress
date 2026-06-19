@@ -1,0 +1,13 @@
+# public_html/.htaccess
+
+RewriteEngine On
+
+# Prevent directory listing for security
+Options -Indexes
+
+# If the requested filename is not a real directory...
+RewriteCond %{REQUEST_FILENAME} !-d
+# ...and is not a real physical file...
+RewriteCond %{REQUEST_FILENAME} !-f
+# ...rewrite the URL to index.php, appending the path as a query or server variable
+RewriteRule ^(.*)$ index.php [L,QSA]
